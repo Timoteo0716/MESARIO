@@ -1,0 +1,1624 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #25205a 0%,
+            #110f2b 45%,
+            #050611 100%
+        );
+}
+
+
+/* =========================================
+   UTILIDADES
+========================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   ESTRELLAS
+========================================= */
+
+.stars {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        );
+
+    background-size:
+        75px 75px;
+
+    opacity: .35;
+
+    animation:
+        starsMove 25s linear infinite;
+
+    z-index: 0;
+}
+
+
+.stars-2 {
+
+    background-size:
+        130px 130px;
+
+    opacity: .2;
+
+    animation-duration: 40s;
+
+    animation-direction: reverse;
+}
+
+
+@keyframes starsMove {
+
+    from {
+        transform:
+            translateY(0);
+    }
+
+    to {
+        transform:
+            translateY(75px);
+    }
+
+}
+
+
+/* =========================================
+   ESTRELLAS FUGACES
+========================================= */
+
+.shooting-stars {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+
+.shooting-stars::before,
+.shooting-stars::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            white,
+            transparent
+        );
+
+    transform:
+        rotate(-35deg);
+
+    opacity: 0;
+
+    animation:
+        shooting 7s linear infinite;
+
+}
+
+
+.shooting-stars::before {
+
+    top: 20%;
+
+    left: 70%;
+
+}
+
+
+.shooting-stars::after {
+
+    top: 55%;
+
+    left: 20%;
+
+    animation-delay: 3.5s;
+
+}
+
+
+@keyframes shooting {
+
+    0% {
+        transform:
+            translate(0, 0)
+            rotate(-35deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: .8;
+    }
+
+    25% {
+
+        transform:
+            translate(-300px, 200px)
+            rotate(-35deg);
+
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro {
+
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        30px 20px;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.intro-content {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    text-align: center;
+
+}
+
+
+.planet {
+
+    width: 110px;
+
+    height: 110px;
+
+    margin:
+        0 auto 30px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 42px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ff8fab,
+            #d83268 55%,
+            #73183f
+        );
+
+    box-shadow:
+        0 0 30px
+        rgba(255, 80, 130, .4);
+
+    animation:
+        floating 4s ease-in-out infinite;
+
+}
+
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-12px);
+    }
+
+}
+
+
+.mini-title {
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    opacity: .6;
+
+    margin-bottom: 18px;
+
+}
+
+
+.intro h1 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(42px, 8vw, 78px);
+
+    line-height: .98;
+
+    font-weight: normal;
+
+    margin-bottom: 25px;
+
+}
+
+
+.intro h1 span {
+
+    display: block;
+
+    color: #ff769c;
+
+}
+
+
+.intro-text {
+
+    max-width: 500px;
+
+    margin:
+        0 auto 35px;
+
+    font-size:
+        clamp(16px, 2vw, 20px);
+
+    line-height: 1.7;
+
+    color:
+        rgba(255,255,255,.72);
+
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.main-btn {
+
+    border: none;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    padding:
+        16px 28px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff719b,
+            #d83e73
+        );
+
+    box-shadow:
+        0 12px 30px
+        rgba(220, 50, 110, .25);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+
+.main-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 18px 35px
+        rgba(220, 50, 110, .4);
+
+}
+
+
+.main-btn:active {
+
+    transform:
+        scale(.96);
+
+}
+
+
+/* =========================================
+   SECCIONES
+========================================= */
+
+.section {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(
+        1100px,
+        calc(100% - 32px)
+    );
+
+    margin:
+        0 auto;
+
+    padding:
+        100px 0;
+}
+
+
+.section-label {
+
+    text-align: center;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color:
+        #ff789e;
+
+    margin-bottom: 18px;
+
+}
+
+
+.section h2 {
+
+    text-align: center;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-weight: normal;
+
+    font-size:
+        clamp(30px, 5vw, 50px);
+
+    line-height: 1.15;
+
+    max-width: 800px;
+
+    margin:
+        0 auto 50px;
+
+}
+
+
+/* =========================================
+   CONTADOR
+========================================= */
+
+.counter-section {
+
+    text-align: center;
+
+}
+
+
+.counter {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    max-width: 800px;
+
+    margin:
+        0 auto 35px;
+
+}
+
+
+.counter-box {
+
+    padding:
+        25px 10px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,.04);
+
+    backdrop-filter:
+        blur(10px);
+
+}
+
+
+.counter-box strong {
+
+    display: block;
+
+    font-size:
+        clamp(28px, 5vw, 45px);
+
+    font-weight: 400;
+
+}
+
+
+.counter-box span {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: .5;
+
+}
+
+
+.counter-message {
+
+    opacity: .65;
+
+    font-size: 16px;
+
+}
+
+
+/* =========================================
+   CONSTELACIÓN
+========================================= */
+
+.constellation {
+
+    position: relative;
+
+    width:
+        min(650px, 90vw);
+
+    aspect-ratio: 9 / 8;
+
+    margin:
+        0 auto;
+
+}
+
+
+.constellation-heart {
+
+    position: absolute;
+
+    top: 52%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    font-size:
+        clamp(30px, 7vw, 65px);
+
+    z-index: 5;
+
+    animation:
+        heartPulse 2s ease-in-out infinite;
+
+}
+
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+    }
+
+}
+
+
+.star {
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 15px white;
+
+}
+
+
+.s1 {
+    top: 26.28%;
+    left: 51.5%;
+}
+
+.s2 {
+    top: 19.38%;
+    left: 81.03%;
+}
+
+.s3 {
+    top: 59.74%;
+    left: 74.3%;
+}
+
+.s4 {
+    top: 90%;
+    left: 50%;
+}
+
+.s5 {
+    top: 59.74%;
+    left: 25.7%;
+}
+
+.s6 {
+    top: 19.38%;
+    left: 18.97%;
+}
+
+.s7 {
+    top: 26.28%;
+    left: 48.5%;
+}
+
+
+.line {
+
+    position: absolute;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.3);
+
+    transform-origin:
+        left center;
+
+}
+
+
+.l1 {
+    width: 30.32%;
+    top: 26.28%;
+    left: 51.5%;
+    transform: rotate(-13.16deg);
+}
+
+.l2 {
+    width: 40.92%;
+    top: 19.38%;
+    left: 81.03%;
+    transform: rotate(99.48deg);
+}
+
+.l3 {
+    width: 38.81%;
+    top: 59.74%;
+    left: 74.3%;
+    transform: rotate(128.76deg);
+}
+
+.l4 {
+    width: 38.81%;
+    top: 90%;
+    left: 50%;
+    transform: rotate(-128.76deg);
+}
+
+.l5 {
+    width: 40.92%;
+    top: 59.74%;
+    left: 25.7%;
+    transform: rotate(-99.48deg);
+}
+
+.l6 {
+    width: 30.32%;
+    top: 19.38%;
+    left: 18.97%;
+    transform: rotate(13.16deg);
+}
+
+
+/* =========================================
+   RECUERDOS
+========================================= */
+
+.memory-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+
+}
+
+
+.memory-card {
+
+    position: relative;
+
+    min-height: 300px;
+
+    padding:
+        35px 28px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.025)
+        );
+
+    overflow: hidden;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
+
+}
+
+
+.memory-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(255,120,160,.4);
+
+}
+
+
+.memory-number {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 25px;
+
+    font-size: 12px;
+
+    opacity: .3;
+
+}
+
+
+.memory-icon {
+
+    font-size: 38px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.memory-card h3 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 27px;
+
+    font-weight: normal;
+
+    margin-bottom: 15px;
+
+}
+
+
+.memory-card p {
+
+    color:
+        rgba(255,255,255,.65);
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================
+   CASSETTE
+========================================= */
+
+.music-section {
+
+    text-align: center;
+
+}
+
+
+.cassette {
+
+    width:
+        min(500px, 90vw);
+
+    margin:
+        0 auto 20px;
+
+    padding:
+        25px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #292941,
+            #151522
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.15);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.3);
+
+}
+
+
+.cassette-top {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    opacity: .5;
+
+    margin-bottom: 20px;
+
+}
+
+
+.cassette-label {
+
+    padding:
+        20px;
+
+    border-radius: 8px;
+
+    background:
+        #e9d7ce;
+
+    color:
+        #31252a;
+
+    transform:
+        rotate(-1deg);
+
+}
+
+
+.cassette-label strong {
+
+    display: block;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 25px;
+
+}
+
+
+.cassette-label small {
+
+    display: block;
+
+    margin-top: 8px;
+
+    opacity: .7;
+
+}
+
+
+.cassette-wheels {
+
+    display: flex;
+
+    justify-content:
+        space-around;
+
+    margin:
+        30px auto;
+
+}
+
+
+.wheel {
+
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 50%;
+
+    border:
+        8px solid
+        #777;
+
+    background:
+        repeating-conic-gradient(
+            #222 0deg 15deg,
+            #444 15deg 30deg
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.wheel span {
+
+    width: 20px;
+
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: #171717;
+
+}
+
+
+.music-btn {
+
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 22px;
+
+    background:
+        #e34b7d;
+
+    transition:
+        transform .2s ease;
+
+}
+
+
+.music-btn:hover {
+
+    transform:
+        scale(1.08);
+
+}
+
+
+.music-status {
+
+    opacity: .5;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================
+   CARTA
+========================================= */
+
+.letter {
+
+    max-width: 750px;
+
+    margin:
+        0 auto;
+
+    background:
+        #f1e4d5;
+
+    color:
+        #30262b;
+
+    border-radius: 5px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.35);
+
+    overflow: hidden;
+
+    transform:
+        rotate(-.5deg);
+
+}
+
+
+.letter-top {
+
+    padding:
+        22px 30px;
+
+    background:
+        #dfc8b4;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 22px;
+
+}
+
+
+.letter-content {
+
+    padding:
+        clamp(30px, 6vw, 60px);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(16px, 2vw, 19px);
+
+    line-height: 1.8;
+
+}
+
+
+.letter-content p {
+
+    margin-bottom: 22px;
+
+}
+
+
+.letter-highlight {
+
+    font-size: 23px;
+
+    color:
+        #c43d6b;
+
+}
+
+
+.signature {
+
+    text-align: right;
+
+    margin-top: 40px;
+
+    font-style: italic;
+
+}
+
+
+/* =========================================
+   SECRETO
+========================================= */
+
+.secret-section {
+
+    text-align: center;
+
+}
+
+
+.lock-container {
+
+    max-width: 600px;
+
+    margin:
+        0 auto;
+
+}
+
+
+.lock {
+
+    font-size: 65px;
+
+    margin-bottom: 20px;
+
+    transition:
+        transform .5s ease;
+
+}
+
+
+.lock-container p {
+
+    color:
+        rgba(255,255,255,.6);
+
+    margin-bottom: 30px;
+
+}
+
+
+.secret-content {
+
+    max-width: 650px;
+
+    margin:
+        50px auto 0;
+
+    padding:
+        45px 30px;
+
+    border:
+        1px solid
+        rgba(255,120,160,.3);
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,80,130,.06);
+
+    animation:
+        reveal .8s ease;
+
+}
+
+
+@keyframes reveal {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(20px)
+            scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+.secret-heart {
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.secret-content h2 {
+
+    margin-bottom: 20px;
+
+}
+
+
+.secret-content p {
+
+    line-height: 1.8;
+
+    color:
+        rgba(255,255,255,.7);
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final-section {
+
+    min-height:
+        70svh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+    padding:
+        80px 20px;
+
+}
+
+
+.final-star {
+
+    font-size: 55px;
+
+    margin-bottom: 30px;
+
+    animation:
+        floating 3s ease-in-out infinite;
+
+}
+
+
+.final-section p {
+
+    color:
+        #ff789e;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.final-section h2 {
+
+    max-width: 700px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(32px, 6vw, 60px);
+
+    font-weight: normal;
+
+    line-height: 1.1;
+
+}
+
+
+.final-section span {
+
+    margin-top: 35px;
+
+    font-size: 35px;
+
+}
+
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (max-width: 800px) {
+
+    .memory-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+    .memory-card:last-child {
+
+        grid-column:
+            1 / -1;
+
+        max-width:
+            calc(50% - 11px);
+
+        margin:
+            0 auto;
+
+    }
+
+}
+
+
+/* =========================================
+   CELULARES
+========================================= */
+
+@media (max-width: 600px) {
+
+    .section {
+
+        width:
+            calc(100% - 28px);
+
+        padding:
+            70px 0;
+
+    }
+
+
+    .intro {
+
+        padding:
+            25px 18px;
+
+    }
+
+
+    .planet {
+
+        width: 85px;
+
+        height: 85px;
+
+        font-size: 32px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .mini-title {
+
+        font-size: 10px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .intro h1 {
+
+        font-size:
+            clamp(40px, 12vw, 58px);
+
+    }
+
+
+    .intro-text {
+
+        font-size: 15px;
+
+        line-height: 1.6;
+
+    }
+
+
+    .main-btn {
+
+        width:
+            100%;
+
+        max-width:
+            330px;
+
+        font-size: 15px;
+
+        padding:
+            15px 20px;
+
+    }
+
+
+    .counter {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+
+    }
+
+
+    .counter-box {
+
+        padding:
+            20px 8px;
+
+    }
+
+
+    .counter-box strong {
+
+        font-size: 30px;
+
+    }
+
+
+    .counter-box span {
+
+        font-size: 9px;
+
+    }
+
+
+    .constellation {
+
+        width:
+            100%;
+
+    }
+
+
+    .memory-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .memory-card {
+
+        min-height:
+            auto;
+
+        padding:
+            30px 25px;
+
+    }
+
+
+    .memory-card:last-child {
+
+        max-width:
+            none;
+
+    }
+
+
+    .cassette {
+
+        padding:
+            18px;
+
+    }
+
+
+    .wheel {
+
+        width: 52px;
+
+        height: 52px;
+
+        border-width: 6px;
+
+    }
+
+
+    .wheel span {
+
+        width: 15px;
+
+        height: 15px;
+
+    }
+
+
+    .letter {
+
+        transform:
+            rotate(0);
+
+    }
+
+
+    .letter-content {
+
+        padding:
+            30px 24px;
+
+    }
+
+
+    .letter-highlight {
+
+        font-size: 20px;
+
+    }
+
+
+    .secret-content {
+
+        padding:
+            35px 22px;
+
+    }
+
+}
+
+
+/* =========================================
+   CELULARES MUY PEQUEÑOS
+========================================= */
+
+@media (max-width: 360px) {
+
+    .section {
+
+        width:
+            calc(100% - 22px);
+
+    }
+
+
+    .intro h1 {
+
+        font-size:
+            38px;
+
+    }
+
+
+    .counter-box strong {
+
+        font-size:
+            26px;
+
+    }
+
+
+    .counter-box {
+
+        padding:
+            17px 5px;
+
+    }
+
+
+    .section h2 {
+
+        font-size:
+            29px;
+
+    }
+
+
+    .letter-content {
+
+        padding:
+            25px 18px;
+
+        font-size:
+            15px;
+
+    }
+
+}
+
+
+/* =========================================
+   PANTALLAS GRANDES
+========================================= */
+
+@media (min-width: 1400px) {
+
+    .section {
+
+        padding:
+            130px 0;
+
+    }
+
+}
